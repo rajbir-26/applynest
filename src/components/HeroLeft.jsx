@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function HeroLeft() {
   return (
@@ -14,19 +15,13 @@ export default function HeroLeft() {
 
       {/* Heading */}
       <h1 className="font-heading text-[76px] font-medium leading-[0.95] tracking-[-0.05em] text-neutral-dark">
-
         Jobs should be
-
         <br />
-
         <span className="italic text-terracotta">
           easier to find.
         </span>
-
         <br />
-
         Not harder.
-
       </h1>
 
       {/* Decorative underline */}
@@ -55,15 +50,15 @@ export default function HeroLeft() {
         focused place built for students and freshers.
       </p>
 
-      {/* CTA */}
+      {/* CTA Button linked to router paths */}
       <div className="mt-14">
-        <a
-          href="#"
+        <Link
+          to="/jobs"
           className="inline-flex items-center gap-4 rounded-full bg-terracotta px-10 py-5 font-body text-[20px] font-semibold text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
         >
           Explore Jobs
           <ArrowRight size={22} strokeWidth={2.2} />
-        </a>
+        </Link>
       </div>
 
     </div>
