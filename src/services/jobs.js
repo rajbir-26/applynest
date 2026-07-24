@@ -44,22 +44,6 @@ export function getRelativeTime(dateString) {
 }
 
 /**
- * Checks if a job's application deadline has passed
- */
-export function isJobActive(deadlineString) {
-  const cleanDeadline = cleanString(deadlineString);
-  if (!cleanDeadline || cleanDeadline.toLowerCase().includes('open')) {
-    return true;
-  }
-  const deadlineDate = new Date(cleanDeadline);
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  if (isNaN(deadlineDate.getTime())) return true;
-  return deadlineDate >= today;
-}
-
-/**
  * Main fetch function using tab index '1'
  */
 export async function fetchJobsFromSheet() {
