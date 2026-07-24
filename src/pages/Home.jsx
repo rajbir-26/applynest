@@ -5,7 +5,7 @@ import BackgroundDecor from '../components/BackgroundDecor';
 
 export default function Home() {
   return (
-    <div className="relative w-full min-h-screen overflow-x-hidden bg-brand-beige flex flex-col">
+    <div className="relative w-full min-h-screen overflow-x-hidden bg-brand-beige flex flex-col bg-ambient-glow">
       <BackgroundDecor />
 
       {/* Structural layout ensuring generous whitespace and vertical centering */}
@@ -13,7 +13,7 @@ export default function Home() {
         <Navbar />
         
         {/* Flex container providing balanced proportion between Navbar and Hero content */}
-        <main className="flex-grow flex items-center pt-12 md:pt-16">
+        <main className="flex-grow flex items-center pt-12 md:pt-16 animate-fade-up">
           <Hero />
         </main>
       </div>

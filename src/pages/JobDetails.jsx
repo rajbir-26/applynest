@@ -35,9 +35,9 @@ export default function JobDetails() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-paper text-neutral-dark flex flex-col justify-between">
+      <div className="min-h-screen bg-paper text-neutral-dark flex flex-col justify-between relative overflow-hidden bg-ambient-glow">
         <Navbar />
-        <div className="py-32 text-center text-gray-500 font-medium text-sm">
+        <div className="py-32 text-center text-gray-500 font-medium text-sm animate-fade-in">
           <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-[#944E2D] border-t-transparent mb-3"></div>
           <p>Loading opportunity details...</p>
         </div>
@@ -48,16 +48,16 @@ export default function JobDetails() {
 
   if (error || !job) {
     return (
-      <div className="min-h-screen bg-paper text-neutral-dark flex flex-col justify-between">
+      <div className="min-h-screen bg-paper text-neutral-dark flex flex-col justify-between relative overflow-hidden bg-ambient-glow">
         <Navbar />
-        <main className="max-w-3xl mx-auto px-6 py-20 text-center">
-          <div className="bg-white border border-[#EAD9C9] rounded-3xl p-10 shadow-sm">
+        <main className="max-w-3xl mx-auto px-6 py-20 text-center animate-fade-up">
+          <div className="bg-white/80 backdrop-blur-sm border border-[#EAD9C9] rounded-3xl p-10 shadow-sm">
             <span className="text-4xl mb-3 block">⚠️</span>
             <h2 className="text-xl font-bold text-gray-900 mb-2">Listing Not Found</h2>
             <p className="text-xs text-gray-500 mb-6">{error || "The job you're looking for doesn't exist."}</p>
             <Link
               to="/jobs"
-              className="inline-flex items-center gap-2 bg-[#944E2D] text-white text-xs font-bold px-5 py-2.5 rounded-xl hover:bg-[#7D3F22] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#944E2D] text-white text-xs font-bold px-5 py-2.5 rounded-xl hover:bg-[#7D3F22] transition-colors active:scale-95 shadow-sm"
             >
               <ArrowLeft size={16} /> Back to All Jobs
             </Link>
@@ -83,22 +83,26 @@ export default function JobDetails() {
     : ['No detailed description provided for this role.'];
 
   return (
-    <div className="min-h-screen bg-paper text-neutral-dark flex flex-col justify-between antialiased">
+    <div className="min-h-screen bg-paper text-neutral-dark flex flex-col justify-between antialiased relative overflow-hidden bg-ambient-glow">
+      
+      {/* Soft Ambient Glow Orbs in Background */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#a44e2d]/5 blur-3xl rounded-full pointer-events-none -z-10 animate-glow" />
+
       <div>
         <Navbar />
 
-        <main className="max-w-4xl mx-auto px-6 py-10">
+        <main className="max-w-4xl mx-auto px-6 py-10 animate-fade-up">
           
           {/* Back Navigation */}
           <Link
             to="/jobs"
-            className="inline-flex items-center gap-2 text-xs font-bold text-[#944E2D] hover:underline mb-6"
+            className="inline-flex items-center gap-2 text-xs font-bold text-[#944E2D] hover:underline mb-6 transition-transform active:scale-95"
           >
             <ArrowLeft size={16} /> Back to Openings
           </Link>
 
           {/* Top Job Header Card */}
-          <div className="bg-white border border-[#EAD9C9] rounded-3xl p-6 sm:p-8 shadow-sm mb-8">
+          <div className="bg-white/80 backdrop-blur-sm border border-[#EAD9C9] rounded-3xl p-6 sm:p-8 shadow-sm mb-8 transition-all duration-300 hover:shadow-md">
             <div className="flex items-start gap-4 pb-6 border-b border-[#F2EDE4]">
               {/* Logo / Badge */}
               {job.logoUrl ? (
@@ -175,7 +179,7 @@ export default function JobDetails() {
                   {job.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="bg-[#F9F6F0] text-gray-700 text-xs font-medium px-3 py-1 rounded-lg border border-[#EAD9C9]"
+                      className="bg-[#F9F6F0] text-gray-700 text-xs font-medium px-3 py-1 rounded-lg border border-[#EAD9C9] transition-transform hover:scale-105"
                     >
                       {tag}
                     </span>
@@ -186,7 +190,7 @@ export default function JobDetails() {
           </div>
 
           {/* Job Description Card */}
-          <div className="bg-white border border-[#EAD9C9] rounded-3xl p-6 sm:p-8 shadow-sm mb-8">
+          <div className="bg-white/80 backdrop-blur-sm border border-[#EAD9C9] rounded-3xl p-6 sm:p-8 shadow-sm mb-8 transition-all duration-300 hover:shadow-md">
             <h2 className="text-lg font-extrabold text-gray-900 mb-4 pb-2 border-b border-[#F2EDE4]">
               Job Description
             </h2>
@@ -199,7 +203,7 @@ export default function JobDetails() {
           </div>
 
           {/* Single Action Box at the Bottom */}
-          <div className="bg-[#F9F6F0] border border-[#EAD9C9] rounded-3xl p-6 sm:p-8 text-center shadow-sm">
+          <div className="bg-[#F9F6F0] border border-[#EAD9C9] rounded-3xl p-6 sm:p-8 text-center shadow-sm transition-all duration-300 hover:shadow-md">
             <h3 className="text-base font-bold text-gray-900 mb-1">Ready to submit your application?</h3>
             <p className="text-xs text-gray-600 mb-6 font-medium">
               You will be redirected directly to {job.company}'s official application form with zero paywalls.
@@ -210,7 +214,7 @@ export default function JobDetails() {
                 href={job.applyLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#944E2D] hover:bg-[#7D3F22] text-white text-xs font-bold px-8 py-3.5 rounded-2xl transition-all shadow-sm"
+                className="inline-flex items-center gap-2 bg-[#944E2D] hover:bg-[#7D3F22] text-white text-xs font-bold px-8 py-3.5 rounded-2xl transition-all active:scale-95 shadow-sm"
               >
                 <span className="text-white font-bold">Apply Now on Official Site</span> <ExternalLink size={14} className="text-white" />
               </a>

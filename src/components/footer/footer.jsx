@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <span className="text-2xl font-black text-white tracking-tight">
-                Apply<span className="text-[#D97745]">Nest</span>
+                Kareer<span className="text-[#D97745]">Kafe</span>
               </span>
               <span className="text-[10px] font-bold uppercase tracking-widest bg-[#2A2A2A] text-[#D97745] px-2.5 py-1 rounded-full">
                 Job Feed
