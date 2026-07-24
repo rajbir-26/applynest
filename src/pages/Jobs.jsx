@@ -136,7 +136,7 @@ export default function Jobs() {
           </section>
 
           {/* Main Layout Grid */}
-          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 animate-fade-up">
+          <main className="max-w-[1500px] mx-auto px-8 sm:px-10 lg:px-12 py-4 sm:py-8 animate-fade-up">
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-start">
               
               {/* Sidebar Filters - Full width on mobile, fixed width on desktop */}
